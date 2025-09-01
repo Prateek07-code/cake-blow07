@@ -43,13 +43,36 @@ body {
   color: #AD030F;
 }
 
+.cake-container {
+  /* This new code centers the cake horizontally and vertically */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%; /* Ensures it spans the full width of the viewport */
+}
+
+/* This new code styles the 'Happy September' text */
+.cake-title {
+  position: absolute;
+  top: -150px; /* Adjust this value to move the text up or down */
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Pacifico', cursive;
+  font-size: 3em;
+  color: #fff;
+  text-shadow: 2px 2px 4px #000;
+  z-index: 20; /* Ensures the title is on top of everything else */
+}
+
+
 .cake {
-  position: relative;   /* 🔥 changed from absolute */
+  position: relative;
   width: 250px;
   height: 200px;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); /* 🔥 cleaner centering */
+  transform: translate(-50%, -50%);
   margin: 0 auto;
 }
 
@@ -135,7 +158,7 @@ body {
 }
 
 .candle {
-  position: absolute;  /* 🔥 ensure candles are placed inside .cake */
+  position: absolute;
   background-color: #7B020B;
   width: 12px;
   height: 35px;
