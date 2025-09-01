@@ -31,77 +31,72 @@ h1 {
   margin-top: 30px;
 }
 
-/* Cake base layers */
+/* Cake layers & plate */
 .cake {
   position: relative;
   display: inline-block;
   margin: auto;
-  width: 250px;
-  height: 200px;
-  z-index: 1;
 }
 
 .plate {
-  width: 300px;
-  height: 30px;
-  background: #ddd;
-  border-radius: 50%;
-  margin: auto;
   position: absolute;
-  bottom: -20px;
+  bottom: -30px;
   left: 50%;
   transform: translateX(-50%);
+  width: 350px;
+  height: 40px;
+  background: #e0e0e0;
+  border-radius: 50%;
+  z-index: 0;
 }
 
 .layer {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 240px;
-  height: 60px;
+  position: relative;
+  width: 250px;
+  margin: 0 auto;
   background: #f2c1b6;
   border-radius: 10px;
+  box-shadow: inset 0 -5px 0 rgba(0, 0, 0, 0.1);
 }
 
 .layer-bottom {
-  bottom: 0;
+  height: 100px;
 }
 
 .layer-middle {
-  bottom: 60px;
-  width: 220px;
+  height: 80px;
+  top: -20px;
 }
 
 .layer-top {
-  bottom: 120px;
-  width: 200px;
+  height: 60px;
+  top: -40px;
 }
 
 /* Icing */
 .icing {
   position: absolute;
+  top: -50px;
   left: 50%;
-  bottom: 160px;
   transform: translateX(-50%);
-  width: 210px;
-  height: 40px;
+  width: 270px;
+  height: 60px;
   background: #fff;
-  border-radius: 20px 20px 10px 10px;
+  border-radius: 10px;
   z-index: 1;
 }
 
-/* Drips */
 .drip {
   position: absolute;
   width: 20px;
-  height: 30px;
+  height: 40px;
   background: #fff;
   border-radius: 10px;
 }
 
-.drip1 { left: 40%; bottom: 120px; }
-.drip2 { left: 55%; bottom: 120px; }
-.drip3 { left: 70%; bottom: 120px; }
+.drip1 { left: 60px; top: 0; }
+.drip2 { left: 120px; top: 10px; }
+.drip3 { left: 180px; top: 5px; }
 
 /* Candles */
 .candle {
@@ -110,8 +105,8 @@ h1 {
   height: 30px;
   background: #FFD700;
   border-radius: 2px;
-  top: -35px; /* above cake */
-  z-index: 5; /* ensure above cake + icing */
+  top: -35px;
+  z-index: 2;
 }
 
 .flame {
@@ -124,14 +119,14 @@ h1 {
   background: radial-gradient(circle, #FF4500 0%, #FFFF00 60%, transparent 80%);
   border-radius: 50%;
   animation: flicker 0.3s infinite alternate;
-  z-index: 6;
+  z-index: 3;
 }
 
 .candle.out .flame {
   display: none;
 }
 
-/* Flame flicker animation */
+/* Flame flicker */
 @keyframes flicker {
   0% { transform: translateX(-50%) scaleY(1); opacity: 1; }
   50% { transform: translateX(-50%) scaleY(1.2); opacity: 0.8; }
