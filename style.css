@@ -14,15 +14,20 @@ h1 {
   text-shadow: 2px 2px 5px black;
 }
 
-#candleCount {
+.candle-count-display{
   font-size: 20px;
-  margin: 10px auto 20px;
+  margin: 0px auto 20px;
   padding: 8px 16px;
   display: inline-block;
   background: #fbe3c4;
   border-radius: 10px;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
   color: #6A4B18;
+}
+
+#candleCount{
+  font-weight: bold;
+  font-size: 22px;
 }
 
 .cake-container {
