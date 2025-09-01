@@ -3,6 +3,9 @@
   width: 100%;
   text-align: center;
   margin-top: 50px;
+  const centerX = cake.offsetWidth / 2;
+  const centerY = cake.offsetHeight / 2;
+
 }
 
 .cake {
