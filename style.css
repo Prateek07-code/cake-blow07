@@ -17,7 +17,7 @@ h1 {
 
 .candle-count-display {
   font-size: 20px;
-  margin: 10px auto 30px; /* spacing below heading, before cake */
+  margin: 10px auto 140px; /* spacing below heading, before cake */
   padding: 8px 16px;
   display: inline-block; /* forces below h1 */
   text-align: center;
