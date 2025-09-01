@@ -95,14 +95,23 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Auto-add candles from URL param
-  const candleCount = parseInt(getQueryParam("candles"));
-  if (!isNaN(candleCount) && candleCount > 0) {
-    const rect = cake.getBoundingClientRect();
-    for (let i = 0; i < candleCount; i++) {
-      // random position within cake area
-      const left = Math.random() * (rect.width - 20);
-      const top = Math.random() * (rect.height - 40);
-      addCandle(left, top);
-    }
+  const centerX = rect.width / 2;
+const centerY = rect.height / 2;
+
+// how many candles per circle before moving outward
+const candlesPerCircle = 12;  
+const radiusStep = 40; // distance between circles
+
+for (let i = 0; i < candleCount; i++) {
+  const circleIndex = Math.floor(i / candlesPerCircle); // which ring
+  const angle = (2 * Math.PI / candlesPerCircle) * (i % candlesPerCircle);
+
+  const radius = 50 + circleIndex * radiusStep; // base radius + step outwards
+  const left = centerX + radius * Math.cos(angle);
+  const top = centerY + radius * Math.sin(angle);
+
+  addCandle(left, top);
+}
+
   }
 });
