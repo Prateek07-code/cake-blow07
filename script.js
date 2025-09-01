@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
     updateCandleCount();
   }
 
+  // Add candle on click
   cake.addEventListener("click", function (event) {
     const rect = cake.getBoundingClientRect();
     const left = event.clientX - rect.left;
@@ -35,6 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
     addCandle(left, top);
   });
 
+  // Check if user is blowing into mic
   function isBlowing() {
     const bufferLength = analyser.frequencyBinCount;
     const dataArray = new Uint8Array(bufferLength);
@@ -46,15 +48,16 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     let average = sum / bufferLength;
 
-    return average > 40; //
+    return average > 40; // threshold
   }
-  
+
+  // Get query param value
   function getQueryParam(name) {
-  const params = new URLSearchParams(window.location.search);
-  return params.get(name);
-}
+    const params = new URLSearchParams(window.location.search);
+    return params.get(name);
+  }
 
-
+  // Try to blow out candles
   function blowOutCandles() {
     let blownOut = 0;
 
@@ -72,6 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  // Mic setup
   if (navigator.mediaDevices.getUserMedia) {
     navigator.mediaDevices
       .getUserMedia({ audio: true })
@@ -88,5 +92,17 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   } else {
     console.log("getUserMedia not supported on your browser!");
+  }
+
+  // Auto-add candles from URL param
+  const candleCount = parseInt(getQueryParam("candles"));
+  if (!isNaN(candleCount) && candleCount > 0) {
+    const rect = cake.getBoundingClientRect();
+    for (let i = 0; i < candleCount; i++) {
+      // random position within cake area
+      const left = Math.random() * (rect.width - 20);
+      const top = Math.random() * (rect.height - 40);
+      addCandle(left, top);
+    }
   }
 });
