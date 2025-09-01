@@ -48,6 +48,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     return average > 40; //
   }
+  
+  function getQueryParam(name) {
+  const params = new URLSearchParams(window.location.search);
+  return params.get(name);
+}
+
 
   function blowOutCandles() {
     let blownOut = 0;
