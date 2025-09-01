@@ -1,6 +1,25 @@
 body {
   background-color: #333;
 }
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+/* Page title styles */
+.page-title {
+  text-align: center;
+  font-family: 'Pacifico', cursive;
+  font-size: 48px;
+  color: #FFD700;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+  margin-top: 40px;
+  margin-bottom: 20px;
+  animation: floaty 3s ease-in-out infinite;
+}
+
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
 
 .candle-count-display {
   text-align: center;
