@@ -4,14 +4,16 @@ body {
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
 /* Page title styles */
-.page-title {
-  text-align: center;
+.cake-title {
+  position: absolute;
+  top: -150px; /* Adjust this value to move the text up or down */
+  left: 50%;
+  transform: translateX(-50%);
   font-family: 'Pacifico', cursive;
-  font-size: 48px;
+  font-size: 3em;
   color: #FFD700;
   text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
-  margin-top: 40px;
-  margin-bottom: 20px;
+  z-index: 20; /* Ensures the title is on top of everything else */
   animation: floaty 3s ease-in-out infinite;
 }
 
@@ -19,7 +21,6 @@ body {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
 }
-
 
 .candle-count-display {
   text-align: center;
@@ -44,27 +45,12 @@ body {
 }
 
 .cake-container {
-  /* This new code centers the cake horizontally and vertically */
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 100%; /* Ensures it spans the full width of the viewport */
+  width: 100%;
 }
-
-/* This new code styles the 'Happy September' text */
-.cake-title {
-  position: absolute;
-  top: -150px; /* Adjust this value to move the text up or down */
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: 'Pacifico', cursive;
-  font-size: 3em;
-  color: #fff;
-  text-shadow: 2px 2px 4px #000;
-  z-index: 20; /* Ensures the title is on top of everything else */
-}
-
 
 .cake {
   position: relative;
@@ -154,6 +140,17 @@ body {
   width: 80px;
   border-bottom-left-radius: 40px;
   border-bottom-right-radius: 40px;
+}
+
+/* Candle container */
+#candles {
+  position: absolute;
+  top: 40px; /* adjust based on cake top */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 240px;
+  height: 90px;
+  pointer-events: none;
 }
 
 .candle {
