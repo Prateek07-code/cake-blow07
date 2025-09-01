@@ -50,7 +50,7 @@ h1 {
 /* Plate */
 .plate {
   position: absolute;
-  bottom: -35px;
+  bottom: 35px;
   left: 50%;
   transform: translateX(-50%);
   width: 360px;
