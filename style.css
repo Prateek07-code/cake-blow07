@@ -31,25 +31,87 @@ h1 {
   margin-top: 30px;
 }
 
+/* Cake base layers */
 .cake {
   position: relative;
   display: inline-block;
+  margin: auto;
   width: 250px;
   height: 200px;
-  margin: auto;
-  background: #f2c1b6; /* fallback if cake image missing */
-  border-radius: 10px;
-  z-index: 1; /* keep below candles */
+  z-index: 1;
 }
 
+.plate {
+  width: 300px;
+  height: 30px;
+  background: #ddd;
+  border-radius: 50%;
+  margin: auto;
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.layer {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 240px;
+  height: 60px;
+  background: #f2c1b6;
+  border-radius: 10px;
+}
+
+.layer-bottom {
+  bottom: 0;
+}
+
+.layer-middle {
+  bottom: 60px;
+  width: 220px;
+}
+
+.layer-top {
+  bottom: 120px;
+  width: 200px;
+}
+
+/* Icing */
+.icing {
+  position: absolute;
+  left: 50%;
+  bottom: 160px;
+  transform: translateX(-50%);
+  width: 210px;
+  height: 40px;
+  background: #fff;
+  border-radius: 20px 20px 10px 10px;
+  z-index: 1;
+}
+
+/* Drips */
+.drip {
+  position: absolute;
+  width: 20px;
+  height: 30px;
+  background: #fff;
+  border-radius: 10px;
+}
+
+.drip1 { left: 40%; bottom: 120px; }
+.drip2 { left: 55%; bottom: 120px; }
+.drip3 { left: 70%; bottom: 120px; }
+
+/* Candles */
 .candle {
   position: absolute;
   width: 10px;
   height: 30px;
   background: #FFD700;
   border-radius: 2px;
-  top: -35px; /* place above the cake */
-  z-index: 2; /* above cake */
+  top: -35px; /* above cake */
+  z-index: 5; /* ensure above cake + icing */
 }
 
 .flame {
@@ -62,7 +124,7 @@ h1 {
   background: radial-gradient(circle, #FF4500 0%, #FFFF00 60%, transparent 80%);
   border-radius: 50%;
   animation: flicker 0.3s infinite alternate;
-  z-index: 3; /* above candle */
+  z-index: 6;
 }
 
 .candle.out .flame {
